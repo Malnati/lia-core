@@ -1,3 +1,15 @@
+
+export const liaDomains = {
+  portal: 'https://aneety.com/',
+  api: 'https://api.aneety.com/',
+  core: 'https://core.aneety.com/',
+  pwa: 'https://pwa.aneety.com/',
+  desktop: 'https://desktop.aneety.com/',
+  dashboard: 'https://dashboard.aneety.com/'
+} as const;
+
+export const defaultApiBaseUrl = liaDomains.api;
+
 export const appRoles = [
   'model_production_operator',
   'prosthesis_production_operator',
@@ -162,7 +174,7 @@ export const apiRoutes = {
 } as const;
 
 export type LiaApiClientOptions = {
-  baseUrl: string;
+  baseUrl?: string;
   getAccessToken: () => Promise<string | undefined> | string | undefined;
 };
 
@@ -173,7 +185,7 @@ export function createLiaApiClient(options: LiaApiClientOptions) {
     headers.set('content-type', headers.get('content-type') ?? 'application/json');
     if (token) headers.set('authorization', `Bearer ${token}`);
 
-    const response = await fetch(new URL(path, options.baseUrl), { ...init, headers });
+    const response = await fetch(new URL(path, options.baseUrl ?? defaultApiBaseUrl), { ...init, headers });
     if (!response.ok) {
       throw new Error(`Lia API ${response.status} ${response.statusText}`);
     }

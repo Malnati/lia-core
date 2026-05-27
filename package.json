@@ -13,7 +13,8 @@
   "scripts": {
     "build": "tsc -p tsconfig.json && node scripts/write-pages.mjs",
     "lint": "tsc -p tsconfig.json --noEmit",
-    "test": "vitest run"
+    "test": "vitest run",
+    "deploy:cloudflare": "pnpm build && pnpm dlx wrangler@latest pages deploy dist --project-name=lia-core --branch=main"
   },
   "exports": {
     ".": "./dist/index.js"

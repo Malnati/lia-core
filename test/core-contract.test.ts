@@ -1,6 +1,8 @@
 import { describe, expect, it } from 'vitest';
 import {
   apiRoutes,
+  defaultApiBaseUrl,
+  liaDomains,
   appRoles,
   defaultTenant,
   hasPermission,
@@ -19,6 +21,8 @@ describe('Lia core contract', () => {
       'platform_admin'
     ]);
     expect(defaultTenant).toMatchObject({ slug: 'lia', brandName: 'Lia' });
+    expect(liaDomains.portal).toBe('https://aneety.com/');
+    expect(defaultApiBaseUrl).toBe('https://api.aneety.com/');
   });
 
   it('maps administrative permissions without granting cross-tenant platform access by default', () => {

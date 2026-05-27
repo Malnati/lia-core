@@ -17,13 +17,13 @@ await writeFile(
   </head>
   <body>
     <h1>Lia Core</h1>
-    <p>Contratos ESM compartilhados para a plataforma Lia.</p>
+    <p>Contratos ESM compartilhados para a plataforma Lia em aneety.com.</p>
     <ul>
       <li><a href="./index.js">index.js</a></li>
       <li><a href="./index.d.ts">index.d.ts</a></li>
       <li><a href="./README.md">README.md</a></li>
     </ul>
-    <p>Import ESM: <code>import { appRoles } from 'https://malnati.github.io/lia-core/index.js'</code></p>
+    <p>Import ESM: <code>import { appRoles } from 'https://core.aneety.com/index.js'</code></p>
   </body>
 </html>
 `,
