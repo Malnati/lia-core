@@ -8,14 +8,24 @@ Contratos compartilhados da plataforma Lia.
 - Roles e permissões.
 - Status e checkpoints.
 - Tenant padrão Lia.
-- Rotas públicas da API NestJS.
+- Domínios oficiais `aneety.com`.
 - Cliente HTTP mínimo para consumidores frontend.
 
 ## Publicação
 
-GitHub Pages esperado: <https://malnati.github.io/lia-core/>
+Cloudflare Pages Free esperado: <https://core.aneety.com/>
 
 O build publica ESM estático em `dist/index.js` e tipos em `dist/index.d.ts`.
+
+Import público alvo:
+
+```ts
+import { appRoles, createLiaApiClient } from 'https://core.aneety.com/index.js';
+```
+
+## API padrão
+
+`createLiaApiClient()` usa `https://api.aneety.com/` quando `baseUrl` não for informado.
 
 ## Validação
 
@@ -23,4 +33,5 @@ O build publica ESM estático em `dist/index.js` e tipos em `dist/index.d.ts`.
 pnpm lint
 pnpm test
 pnpm build
+pnpm deploy:cloudflare
 ```
